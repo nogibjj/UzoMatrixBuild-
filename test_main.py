@@ -1,4 +1,4 @@
-from cool import sub
+from main import sub
 
 
 def test_sub():
