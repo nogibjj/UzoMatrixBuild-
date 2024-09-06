@@ -1,9 +1,8 @@
-pylint==2.15.3
-pytest==7.4.0
+pylint
+pytest
 click
-black==22.3.0
+black
 pytest-cov
-math
-pandas==1.5.3
-numpy==1.24.2
-matplotlib==3.71
+pandas
+numpy
+matplotlib

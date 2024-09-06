@@ -1,14 +1,19 @@
 install:
-	pip install --upgrade pip &&\
-pip install -r requirements.txt
+	pip install --upgrade pip && pip install -r requirements.txt
 
 format:
 	black *.py
 
 lint:
-	pylint --disable=R,C cool.py
+	pylint --disable=R,C --ignore-patterns=test_*?py *.py
 
 test:
-	python -m pytest -vv --cov=hello test_cool.py
+	python -m pytest -cov=main test_main.py
 
-all: install lint test
+docker-build:
+	docker build -f .devcontainer/Dockerfile -t python-dev .
+
+docker-run:
+	docker run --rm -v "$(PWD)":/workspace -p 8000:8000 python-dev
+
+all: install format lint test
